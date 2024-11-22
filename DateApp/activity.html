@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date Options</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="hearts"></div>
+    <div class="container">
+        <h1>What would you like to do?</h1>
+
+        <div class="categories">
+            <div class="category" data-category="climbing" onclick="selectCategory('Climbing')">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcReiwAYTxo0ftQCIM6MOPPrPsoTzbt1RaEOYg&s" alt="Climbing" />
+                <p>Climbing</p>
+            </div>
+            <div class="category" data-category="bowling" onclick="selectCategory('Bowling')">
+                <img src="https://img.freepik.com/premium-photo/picture-bowling-ball-hitting-pins-scoring-strike-bowling-background-bowling-3d-rendering_252967-120.jpg" alt="Bowling" />
+                <p>Bowling</p>
+            </div>
+            <div class="category" data-category="minigolf" onclick="selectCategory('Minigolf')">
+                <img src="https://cdn.kudyznudy.cz/files/22/22729a0e-898b-4eda-853c-feb9de3c3732.jpg?v=20240425054555" alt="Minigolf" />
+                <p>Minigolf</p>
+            </div>
+            <div class="category" data-category="golf" onclick="selectCategory('Golf')">
+                <img src="https://media.istockphoto.com/id/173621705/photo/driving-range-practice.jpg?s=612x612&w=0&k=20&c=XZLRaEQhE88VRpPXw7GnbMWi1uhVg462GD0vSqYtfhI=" alt="Golf" />
+                <p>Golf</p>
+            </div>
+            <div class="category" data-category="gym" onclick="selectCategory('Gym')">
+                <img src="https://img.freepik.com/free-photo/3d-gym-equipment_23-2151114193.jpg" alt="Gym" />
+                <p>Gym</p>
+            </div>
+            <div class="category" data-category="bikes" onclick="selectCategory('Bikes')">
+                <img src="https://media.istockphoto.com/id/1402134774/photo/professional-road-cyclist-on-a-training-ride.jpg?s=612x612&w=0&k=20&c=CB2o_DXMgH15MLa1CEqWwZVtVb3rpRgejV3UFnUwF_U=" alt="Bikes" />
+                <p>Bikes</p>
+            </div>
+            <div class="category" data-category="walk" onclick="selectCategory('Walk')">
+                <img src="https://t3.ftcdn.net/jpg/01/77/35/62/360_F_177356247_e07uAYaDMpZBIPz1ex4sZcBunNKn5WaZ.jpg" alt="Walk" />
+                <p>Walk</p>
+            </div>
+            <div class="category" data-category="food" onclick="selectCategory('Jiné')">
+                <img src="https://www.shutterstock.com/shutterstock/videos/3512199285/thumb/3.jpg?ip=x480" alt="Jiná" />
+                <p>Jiná</p>
+            </div>
+        </div>
+
+        <div class="form-group hidden" id="subOptions">
+            <h2 id="subOptionsTitle"></h2>
+            <select id="subCategory" required></select>
+            <button id="planButton" type="button">Naplánovat rande</button>
+        </div>
+
+        <div id="result" class="hidden">
+            <h2>Plán rande:</h2>
+            <p id="resultText"></p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+    <script>
+        // Funkce pro uložení vybrané kategorie
+        function selectCategory(category) {
+            // Uložíme kategorii do localStorage
+            localStorage.setItem('selectedCategory', category);
+            // Přesměrujeme na stránku shrnuti.html
+            window.location.href = 'shrnuti.html';
+        }
+    </script>
+</body>
+</html>

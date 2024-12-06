@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date Options</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="hearts"></div>
+    <div class="container">
+        <h1>What would you like to do?</h1>
+
+        <div class="categories">
+            <div class="category" data-category="food" onclick="window.location.href='food.html'">
+                <img src="https://img.freepik.com/free-photo/top-view-elegant-plate-with-cutlery-top_23-2148517974.jpg" alt="Jídlo" />
+                <p>Jídlo</p>
+            </div>
+            <div class="category" data-category="activity" onclick="window.location.href='activity.html'">
+                <img src="https://s3.envato.com/files/495594238/6623bc25eef40161a7784259_withmeta.jpg" alt="Aktivity" />
+                <p>Aktivity</p>
+            </div>
+        </div>
+
+        <div class="form-group hidden" id="subOptions">
+            <h2 id="subOptionsTitle"></h2>
+            <select id="subCategory" required></select>
+            <button id="planButton" type="button">Naplánovat rande</button>
+        </div>
+
+        <div id="result" class="hidden">
+            <h2>Plán rande:</h2>
+            <p id="resultText"></p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

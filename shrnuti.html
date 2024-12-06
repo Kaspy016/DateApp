@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plán rande - Shrnutí</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="hearts"></div>
+    <div class="summary-container">
+        
+        <h1>Plán rande</h1>
+
+        <!-- Místo pro zobrazení shrnutí -->
+        <div id="summaryDetails">
+            <p><strong>Date:</strong> <span id="categoryName"></span></p>
+            <p><strong>Čas:</strong> <span id="selectedTime"></span></p>
+        </div>
+
+        <!-- Slider s textem -->
+        <div class="slider-container">
+            <p>How excited are you?</p>
+            <input type="range" min="0" max="100" value="50" id="excitementSlider">
+        </div>
+
+        <!-- Tlačítko pro návrat na hlavní stránku nebo na předchozí krok -->
+        <button onclick="window.location.href='index.html'">Zpět na úvodní stránku</button>
+    </div>
+    <script src="script.js"></script>
+    <script>
+        // Funkce pro formátování data a času
+        function formatDate(dateTime) {
+            const date = new Date(dateTime);
+            const day = String(date.getDate()).padStart(2, '0');  // Den (00-31)
+            const month = String(date.getMonth() + 1).padStart(2, '0');  // Měsíc (01-12)
+            const year = date.getFullYear();  // Rok (YYYY)
+            const hours = String(date.getHours()).padStart(2, '0');  // Hodiny (00-23)
+            const minutes = String(date.getMinutes()).padStart(2, '0');  // Minuty (00-59)
+
+            // Vrací formátovaný řetězec ve formátu DD.MM.YYYY HH:MM
+            return `${day}.${month}. ${hours}:${minutes}`;
+        }
+
+        // Načteme uloženou kategorii a čas z localStorage
+        window.onload = function() {
+            const category = localStorage.getItem('selectedCategory');
+            const selectedTime = localStorage.getItem('selectedTime');
+            
+            // Zobrazíme vybranou kategorii
+            if (category) {
+                document.getElementById('categoryName').textContent = category;
+            } else {
+                document.getElementById('categoryName').textContent = 'Žádná kategorie nebyla vybrána';
+            }
+
+            // Zobrazíme vybraný čas ve formátu DD.MM.YYYY HH:MM
+            if (selectedTime) {
+                document.getElementById('selectedTime').textContent = formatDate(selectedTime);
+            } else {
+                document.getElementById('selectedTime').textContent = 'Žádný čas nebyl vybrán';
+            }
+        }
+
+        document.getElementById('excitementSlider').addEventListener('input', function () {
+            console.log(`Excitement level: ${this.value}`);
+            // Můžeš přidat další akce podle hodnoty slideru
+        });
+
+        const slider = document.getElementById('excitementSlider');
+        const sliderValue = document.createElement('span');
+        slider.parentNode.appendChild(sliderValue);
+
+        slider.addEventListener('input', function() {
+            // Dynamická změna pozadí slideru
+            this.style.background = `linear-gradient(to right, #ff4d4d ${this.value}%, #ffcccc ${this.value}%, #ff4d4d 100%)`;
+
+            // Můžeš přidat další akce při pohybu slideru
+            console.log(`Excitement level: ${this.value}`);
+        });
+
+
+    </script>
+</body>
+</html>
+

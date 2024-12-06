@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date Options</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="heart"></div>
+    <div class="container">
+        <h1>What would you like to do?</h1>
+
+        <div class="categories">
+            <div class="category" data-category="Itálie" onclick="selectCategory('Italská kuchyně')">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvKKh3Yt05DFIKCuEZTxp9QYLVQvQdHduc0A&s" alt="Jídlo" />
+                <p>Itálie</p>
+            </div>
+            <div class="category" data-category="Čína" onclick="selectCategory('Čínská kuchyně')">
+                <img src="https://images-cdn.welcomesoftware.com/Zz0zMDM2ZWM5NmQ5YjAxMWViODcwYmI5NWUzYmNlYzM0NA==/Zz01NTg2OGYyMmQ4MmYxMWViOGM4NjRkNDA4MzFmNzQ4OA%3D%3D.jpg?width=1366" alt="Jídlo" />
+                <p>Čína</p>
+            </div>
+            <div class="category" data-category="Mexiko" onclick="selectCategory('Mexická kuchyně')">
+                <img src="https://mexiconewsdaily.com/wp-content/uploads/2024/08/Traditional-Mexican-Dishes-1.jpg" alt="Jídlo" />
+                <p>Mexiko</p>
+            </div>
+            <div class="category" data-category="Sushi" onclick="selectCategory('Sushi')">
+                <img src="https://www.kikkoman.co.uk/fileadmin/_processed_/4/d/csm_UK-Blog_Guideto-JapaneseFood_Header_Desktop_44ac65a56a.webp" alt="Jídlo" />
+                <p>Sushi</p>
+            </div>
+            <div class="category" data-category="Fast Food" onclick="selectCategory('Fast Food')">
+                <img src="https://img.freepik.com/premium-photo/platter-international-fast-food-dishes-each-one-unique-flavorful_124507-143867.jpg" alt="Jídlo" />
+                <p>Fast Food</p>
+            </div>
+            <div class="category" data-category="Jiná" onclick="selectCategory('Jiná')">
+                <img src="https://www.shutterstock.com/shutterstock/videos/3512199285/thumb/3.jpg?ip=x480" alt="Jídlo" />
+                <p>Jiná</p>
+            </div>
+        </div>
+
+        <div class="form-group hidden" id="subOptions">
+            <h2 id="subOptionsTitle"></h2>
+            <select id="subCategory" required></select>
+            <button id="planButton" type="button">Naplánovat rande</button>
+        </div>
+
+        <div id="result" class="hidden">
+            <h2>Plán rande:</h2>
+            <p id="resultText"></p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+    <script>
+        // Funkce pro uložení vybrané kategorie
+        function selectCategory(category) {
+            // Uložíme kategorii do localStorage
+            localStorage.setItem('selectedCategory', category);
+            // Přesměrujeme na stránku shrnuti.html
+            window.location.href = 'shrnuti.html';
+        }
+    </script>
+</body>
+</html>
